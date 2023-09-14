@@ -1,9 +1,9 @@
-from django.shortcuts import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import HttpResponseRedirect
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 
-from .models import Product, ProductCategory, Basket
+from .models import Basket, Product, ProductCategory
 
 
 class IndexView(TemplateView):
@@ -29,7 +29,7 @@ class ProductsListView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ProductsListView, self).get_context_data()
-        context['title'] = 'Каталог'
+        context['title'] = 'Store - Каталог'
         context['categories'] = ProductCategory.objects.all()
         return context
 

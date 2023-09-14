@@ -1,7 +1,8 @@
-from django.urls import path
-from . import views
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LogoutView
+from django.urls import path
+
+from . import views
 
 urlpatterns = [
     path('register', views.UserRegistrationView.as_view(), name='register'),
