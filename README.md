@@ -1,17 +1,10 @@
-# Store Server
+The project for study Django.
 
-This is my online store project
-
-#### Stack:
-
-- [Python](https://www.python.org/downloads/)
-- [Django](https://www.djangoproject.com/)
-- [PostgreSQL](https://www.postgresql.org/)
-- [Celery](https://docs.celeryq.dev/en/stable/)
-- [Redis](https://redis.io/)
-
-## Local Developing
-
+Stack:
+Python
+PostgreSQL
+Redis
+Local Developing
 All actions should be executed from the source directory of the project and only after installing all requirements.
 
 1. Firstly, create and activate a new virtual environment:
