@@ -7,7 +7,7 @@ from django.utils.timezone import now
 
 
 class User(AbstractUser):
-    """Изменение встроенного профиля AbstractUser с возможностью добавления картинки"""
+    """Изменение встроенного профиля AbstractUser с возможностью добавления картинки и почты"""
     image = models.ImageField(upload_to='users_images', null=True, blank=True)
     is_verified_email = models.BooleanField(default=False)
     email = models.EmailField(unique=True)

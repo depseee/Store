@@ -1,5 +1,4 @@
 from django.db import models
-
 from users.models import User
 
 
@@ -35,6 +34,7 @@ class Product(models.Model):
 
 class BasketQuerySet(models.QuerySet):
     """Переопределение класса objects"""
+
     def total_sum(self):
         """Сумма всех товаров"""
         return sum(basket.sum() for basket in self)

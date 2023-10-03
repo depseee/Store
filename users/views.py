@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
@@ -22,12 +23,22 @@ class UserRegistrationView(CreateView, SuccessMessageMixin):
     form_class = UserRegistrationForm
     template_name = 'users/register.html'
     success_url = reverse_lazy('login')
-    success_message = 'Вы успешно зарегистрированы!'
+    success_message = 'Для успешной регистрации подтвердите адрес электронной почты'
 
     def get_context_data(self, **kwargs):
         context = super(UserRegistrationView, self).get_context_data()
         context['title'] = 'Store - Регистрация'
         return context
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        success_message = self.get_success_message(form.cleaned_data)
+        if success_message:
+            messages.success(self.request, success_message)
+        return response
+
+    def get_success_message(self, cleaned_data):
+        return self.success_message % cleaned_data
 
 
 class UserProfileView(UpdateView):

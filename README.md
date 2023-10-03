@@ -10,6 +10,7 @@ This is my online store project
 - [PostgreSQL](https://www.postgresql.org/)
 - [Celery](https://docs.celeryq.dev/en/stable/)
 - [Redis](https://redis.io/)
+- [Django REST Framework](https://www.django-rest-framework.org/)
 
 ## Local Developing
 
@@ -41,5 +42,5 @@ All actions should be executed from the source directory of the project and only
    
 5. Run Celery:
    ```bash
-   celery -A store worker --loglevel=INFO
+   celery celery -A store worker -l INFO -P solo
    ```
